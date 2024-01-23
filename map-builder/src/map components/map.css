@@ -1,0 +1,10 @@
+
+
+#root{
+    display: flex;
+}
+
+.map-container{
+    width: 60vw;
+    height: 99vh;
+}
