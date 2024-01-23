@@ -11,13 +11,17 @@ const Map: React.FC = () => {
     useEffect(() => {
         if (mapRef.current) {
             // Initialize the map with the configuration from the backend
-            mapboxgl.accessToken = 'my api key';
+            mapboxgl.accessToken = 'api key here';
             var map = new mapboxgl.Map({
             container: mapRef.current,
-            style: 'mapbox://styles/mapbox/streets-v11'
+            style: 'mapbox://styles/alexp12055/clrpp2kpb007q01p2g77k751m'
             });
 
             // Add additional map controls and logic here as needed
+
+            map.on('load', function() {
+                console.log(map.getStyle().layers);
+            });
         }
     },);
 
