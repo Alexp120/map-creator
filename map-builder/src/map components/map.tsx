@@ -15,7 +15,7 @@ const Map: React.FC = () => {
     useEffect(() => {
         if (mapRef.current) {
             // Initialize the map with the configuration from the backend
-            mapboxgl.accessToken = 'api key here';
+            mapboxgl.accessToken = 'api key';
             var map = new mapboxgl.Map({
             container: mapRef.current,
             style: 'mapbox://styles/alexp12055/clrpp2kpb007q01p2g77k751m'
@@ -29,6 +29,7 @@ const Map: React.FC = () => {
         }
     },);
 
+    return(
         <>
         <div className='map-container' ref={mapRef} style={{width: "80vw", height: "99vh"}}></div>
 
@@ -61,6 +62,7 @@ const Map: React.FC = () => {
       <button className='export-button'>Export</button>
     </div>
     </>
+    ) 
 };
 
 export default Map;
