@@ -1,7 +1,33 @@
+
+
 .settings-container{
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
+}
+div{
+    text-align: center;
+}
+
+h2{
+    margin-bottom: 5px;
+}
+
+h3{
+    margin: 5px;
+    margin-bottom: 10px;
+}
+
+.sub-container button{
+    font-size: 16px;
+    margin: 5px 5px;
+}
+
+.export-button{
+    font-size: 20px;
+    padding: 5px 14px;
+    margin-top: auto;
+    margin-bottom: 10px;
 }
