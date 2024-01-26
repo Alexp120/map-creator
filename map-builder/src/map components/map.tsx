@@ -7,6 +7,10 @@ import './map.css'
 
 
 const Map: React.FC = () => {
+    const [canvasSize, setCanvasSize] = useState({
+        width: "80vw",
+        hight: "99vh"
+    })
     const mapRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         if (mapRef.current) {
