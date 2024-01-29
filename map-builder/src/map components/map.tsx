@@ -58,6 +58,29 @@ const Map: React.FC = () => {
         }
     },);
 
+    useEffect(() => {
+      if(map.current){
+        if(mapLockState === true){
+      map.current.boxZoom.disable();
+      map.current.scrollZoom.disable();
+      map.current.dragPan.disable();
+      map.current.dragRotate.disable();
+      map.current.keyboard.disable();
+      map.current.doubleClickZoom.disable();
+      map.current.touchZoomRotate.disable();
+        }else{
+          map.current.boxZoom.enable();
+          map.current.scrollZoom.enable();
+          map.current.dragPan.enable();
+          map.current.dragRotate.enable();
+          map.current.keyboard.enable();
+          map.current.doubleClickZoom.enable();
+          map.current.touchZoomRotate.enable();
+        }
+
+      }
+
+    }, [mapLockState])
     return(
         <>
         <div className='map-container' ref={mapRef} style={{width: "80vw", height: "99vh"}}></div>
