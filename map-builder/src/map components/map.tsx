@@ -24,6 +24,18 @@ const Map: React.FC = () => {
     // Initialize width and height states
     const [canvasDimensions, setCanvasDimensions] = useState(calculateCanvasDimensions());
     const [mapLockState, setMapLockState] = useState(false)
+    useEffect(() => {
+      const handleResize = () => {
+        setCanvasDimensions(calculateCanvasDimensions());
+      };
+  
+      window.addEventListener('resize', handleResize);
+  
+      // Cleanup function to remove the event listener
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []); // Empty dependency array ensures this runs once on mount
     const mapRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         if (mapRef.current) {
