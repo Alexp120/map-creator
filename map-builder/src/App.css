@@ -31,3 +31,8 @@ h3{
     margin-top: auto;
     margin-bottom: 10px;
 }
+.aspectRatio-input{
+    width: 60px;
+    height: 20px;
+    margin: 5px;
+}
