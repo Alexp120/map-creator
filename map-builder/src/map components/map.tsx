@@ -37,6 +37,9 @@ const Map: React.FC = () => {
       };
     }, []); // Empty dependency array ensures this runs once on mount
     const mapRef = useRef<HTMLDivElement>(null);
+    const map = useRef(null);
+    
+    
     useEffect(() => {
         if (mapRef.current) {
             // Initialize the map with the configuration from the backend
