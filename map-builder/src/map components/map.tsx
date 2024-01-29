@@ -21,6 +21,9 @@ const Map: React.FC = () => {
         height: newWidth / (aspectRatio.width / aspectRatio.height)
       };
     };
+    // Initialize width and height states
+    const [canvasDimensions, setCanvasDimensions] = useState(calculateCanvasDimensions());
+    const [mapLockState, setMapLockState] = useState(false)
     const mapRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         if (mapRef.current) {
