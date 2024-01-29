@@ -7,10 +7,11 @@ import './map.css'
 
 
 const Map: React.FC = () => {
-    const [canvasSize, setCanvasSize] = useState({
-        width: "80vw",
-        hight: "99vh"
-    })
+    const aspectRatio = {
+      width: 3,
+      height: 4
+    };
+  
     const mapRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         if (mapRef.current) {
