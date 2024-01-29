@@ -12,6 +12,15 @@ const Map: React.FC = () => {
       height: 4
     };
   
+    // Function to calculate the canvas dimensions
+    const calculateCanvasDimensions = () => {
+      const maxWidthForWindowHeight = window.innerHeight * (aspectRatio.width / aspectRatio.height);
+      const newWidth = Math.min(window.innerWidth, maxWidthForWindowHeight);
+      return {
+        width: newWidth,
+        height: newWidth / (aspectRatio.width / aspectRatio.height)
+      };
+    };
     const mapRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         if (mapRef.current) {
