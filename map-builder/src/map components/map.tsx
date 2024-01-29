@@ -21,9 +21,12 @@ const Map: React.FC = () => {
         height: newWidth / (aspectRatio.width / aspectRatio.height)
       };
     };
+  
     // Initialize width and height states
     const [canvasDimensions, setCanvasDimensions] = useState(calculateCanvasDimensions());
     const [mapLockState, setMapLockState] = useState(false)
+  
+    // Update canvas dimensions on window resize
     useEffect(() => {
       const handleResize = () => {
         setCanvasDimensions(calculateCanvasDimensions());
@@ -36,6 +39,7 @@ const Map: React.FC = () => {
         window.removeEventListener('resize', handleResize);
       };
     }, []); // Empty dependency array ensures this runs once on mount
+
     const mapRef = useRef<HTMLDivElement>(null);
     const map = useRef(null);
     
@@ -43,7 +47,7 @@ const Map: React.FC = () => {
     useEffect(() => {
         if (!map.current) {
             // Initialize the map with the configuration from the backend
-            mapboxgl.accessToken = 'api key';
+            mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleHAxMjA1NSIsImEiOiJjbHJwbGh5d2UwNzV6Mm5zemRqY3k0aDN3In0.MVYpg9gwiHgTyhHz0XyO2Q';
             map.current = new mapboxgl.Map({
             container: mapRef.current,
             style: 'mapbox://styles/alexp12055/clrpp2kpb007q01p2g77k751m',
@@ -81,19 +85,29 @@ const Map: React.FC = () => {
       }
 
     }, [mapLockState])
+    
+
     return(
         <>
-        <div className='map-container' ref={mapRef} style={{width: "80vw", height: "99vh"}}></div>
+        <div className='map-container' ref={mapRef} style={{width: `${canvasDimensions.width -20}px`, height: `${canvasDimensions.height -20}px`}} ></div>
+
+        
 
         <div className='settings-container'>
+          
       <div className='sub-container'>
         <h2>select aspect ratio</h2>
         <button>3x4</button>
         <button>4x3</button>
         <button>16x9</button>
         <h3>or</h3>
-        <input placeholder='custom' />
+        <input className='aspectRatio-input' maxLength={2} type="number" placeholder='width' />
+        <input className='aspectRatio-input' maxLength={2} type="number" placeholder='height' />
       </div>
+      <button className='lock-map-position-button' onClick={() => setMapLockState(!mapLockState)}>
+        {mapLockState ? 'Unlock' : 'Lock'}
+      </button>
+
       <div className='sub-container'>
         <h2>Select Font</h2>
         <select >
@@ -111,6 +125,7 @@ const Map: React.FC = () => {
           <option value="1">placeHolder</option>
         </select>
       </div>
+      
       <button className='export-button'>Export</button>
     </div>
     </>
