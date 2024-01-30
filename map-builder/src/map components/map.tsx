@@ -35,7 +35,7 @@ const Map: React.FC = () => {
       const handleResize = () => {
         setCanvasDimensions(calculateCanvasDimensions());
       };
-  
+
        
       window.addEventListener('resize', handleResize);
   
@@ -46,7 +46,7 @@ const Map: React.FC = () => {
     }, []); // Empty dependency array ensures this runs once on mount
 
     useEffect(() => {
-
+      console.log(aspectRatio);
       setCanvasDimensions(calculateCanvasDimensions())
       setTimeout(() => {
         map.current?.resize();
