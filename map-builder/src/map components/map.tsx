@@ -46,7 +46,7 @@ const Map: React.FC = () => {
     }, []); // Empty dependency array ensures this runs once on mount
 
     useEffect(() => {
-      console.log(aspectRatio);
+
       setCanvasDimensions(calculateCanvasDimensions())
       setTimeout(() => {
         map.current?.resize();
@@ -58,7 +58,7 @@ const Map: React.FC = () => {
     useEffect(() => {
         if (!map.current) {
             // Initialize the map with the configuration from the backend
-            mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleHAxMjA1NSIsImEiOiJjbHJwbGh5d2UwNzV6Mm5zemRqY3k0aDN3In0.MVYpg9gwiHgTyhHz0XyO2Q';
+            mapboxgl.accessToken = 'api-key';
             map.current = new mapboxgl.Map({
             container: mapRef.current,
             style: 'mapbox://styles/alexp12055/clrpp2kpb007q01p2g77k751m',
