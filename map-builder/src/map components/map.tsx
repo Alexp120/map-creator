@@ -11,6 +11,8 @@ const Map: React.FC = () => {
       width: 4,
       height: 4
     });
+    const mapRef = useRef<HTMLDivElement>(null);
+    const map = useRef(null);
   
     // Function to calculate the canvas dimensions
     const calculateCanvasDimensions = () => {
