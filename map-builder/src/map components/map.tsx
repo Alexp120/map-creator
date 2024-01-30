@@ -100,7 +100,7 @@ const Map: React.FC = () => {
 
     return(
         <>
-        <div className='map-container' ref={mapRef} style={{width: `${canvasDimensions.width -20}px`, height: `${canvasDimensions.height -20}px`}} ></div>
+        <div className='map-container' ref={mapRef} style={{width: `${canvasDimensions.width -40}px`, height: `${canvasDimensions.height -40}px`}} ></div>
 
         
 
