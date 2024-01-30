@@ -36,6 +36,7 @@ const Map: React.FC = () => {
         setCanvasDimensions(calculateCanvasDimensions());
       };
   
+       
       window.addEventListener('resize', handleResize);
   
       // Cleanup function to remove the event listener
@@ -44,8 +45,14 @@ const Map: React.FC = () => {
       };
     }, []); // Empty dependency array ensures this runs once on mount
 
-    const mapRef = useRef<HTMLDivElement>(null);
-    const map = useRef(null);
+    useEffect(() => {
+
+      setCanvasDimensions(calculateCanvasDimensions())
+      setTimeout(() => {
+        map.current?.resize();
+      }, 100);
+      
+    }, [aspectRatio])
     
     
     useEffect(() => {
