@@ -108,9 +108,9 @@ const Map: React.FC = () => {
           
       <div className='sub-container'>
         <h2>select aspect ratio</h2>
-        <button>3x4</button>
-        <button>4x3</button>
-        <button>16x9</button>
+        <button onClick={() => setAspectRatio({width: 3, height: 4})}>3x4</button>
+        <button onClick={() => setAspectRatio({width: 4, height: 3})}>4x3</button>
+        <button onClick={() => setAspectRatio({width: 16, height: 9})}>16x9</button>
         <h3>or</h3>
         <input className='aspectRatio-input' maxLength={2} type="number" placeholder='width' />
         <input className='aspectRatio-input' maxLength={2} type="number" placeholder='height' />
