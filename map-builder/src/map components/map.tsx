@@ -112,8 +112,8 @@ const Map: React.FC = () => {
         <button onClick={() => setAspectRatio({width: 4, height: 3})}>4x3</button>
         <button onClick={() => setAspectRatio({width: 16, height: 9})}>16x9</button>
         <h3>or</h3>
-        <input className='aspectRatio-input' maxLength={2} type="number" placeholder='width' />
-        <input className='aspectRatio-input' maxLength={2} type="number" placeholder='height' />
+        <input ref={widthRef} onChange={() => setAspectRatio(prev => ({ ...prev, width: Number(widthRef.current?.value) }))}  className='aspectRatio-input' maxLength={2} min={1} type="number" defaultValue={3} placeholder='width' />
+        <input ref={heightRef} onChange={() => setAspectRatio(prev => ({ ...prev, height: Number(heightRef.current?.value) }))} className='aspectRatio-input' maxLength={2} min={1} type="number" defaultValue={4} placeholder='height' />
       </div>
       <button className='lock-map-position-button' onClick={() => setMapLockState(!mapLockState)}>
         {mapLockState ? 'Unlock' : 'Lock'}
