@@ -7,10 +7,10 @@ import './map.css'
 
 
 const Map: React.FC = () => {
-    const aspectRatio = {
-      width: 3,
+    const [aspectRatio, setAspectRatio] = useState({
+      width: 4,
       height: 4
-    };
+    });
   
     // Function to calculate the canvas dimensions
     const calculateCanvasDimensions = () => {
